@@ -1,4 +1,5 @@
 import { CONTACT } from '../data/content';
+import { asset } from '../utils';
 import PhotoSlot from './PhotoSlot';
 import { BuildingIllustration } from './Illustrations';
 
@@ -7,8 +8,8 @@ export default function Hero() {
     <section id="top" style={{ position: 'relative', color: 'var(--cream)' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <PhotoSlot
-          src="/images/hero.jpg"
-          alt="Love City BBQ, Cruz Bay"
+          src={asset('/images/hero.webp')}
+          alt="Guests toasting with drinks at Love City BBQ"
           aspect="auto"
           radius="0"
           fallback={
@@ -30,7 +31,7 @@ export default function Hero() {
             position: 'absolute',
             inset: 0,
             background:
-              'linear-gradient(180deg, rgba(36,28,21,0.55) 0%, rgba(36,28,21,0.72) 55%, rgba(36,28,21,0.9) 100%)',
+              'linear-gradient(180deg, rgba(36,28,21,0.32) 0%, rgba(36,28,21,0.5) 55%, rgba(36,28,21,0.78) 100%)',
           }}
         />
       </div>

@@ -1,23 +1,17 @@
 # Images
 
-This site ships with hand-drawn illustration fallbacks instead of real
-photos, on purpose — photos on Facebook and Google Business listings
-belong to whoever posted them, and I can't scrape and republish them for
-you without permission.
+Real photos are now in place, provided directly (not scraped from
+Facebook/Google, which would've been a copyright problem). Current mapping:
 
-To use your own real photos (from your Google Business profile, your own
-camera roll, or anywhere you have the rights), just drop a file into this
-folder with the exact name below. The site checks for it automatically —
-no code changes needed.
+| Filename          | Used for                                   |
+|--------------------|---------------------------------------------|
+| `hero.webp`        | Full-bleed hero background — guests toasting |
+| `janice.webp`      | Story section — Janice behind the bar        |
+| `gallery-1.jpg`    | Photo strip — BBQ chicken on the grill       |
+| `gallery-2.jpg`    | Photo strip — BBQ chicken plate              |
+| `gallery-3.webp`   | Photo strip — full plate with sides          |
+| `gallery-4.jpg`    | Photo strip — Janice with guests             |
 
-| Filename          | Used for                                  | Suggested shape |
-|--------------------|--------------------------------------------|------------------|
-| `hero.jpg`         | Full-bleed hero background at the top      | wide, landscape  |
-| `storefront.jpg`   | Story section, the building photo          | 4:3              |
-| `gallery-1.jpg`    | Photo strip — food                         | square           |
-| `gallery-2.jpg`    | Photo strip — sides                        | square           |
-| `gallery-3.jpg`    | Photo strip — the building                 | square           |
-| `gallery-4.jpg`    | Photo strip — food                         | square           |
-| `gallery-5.jpg`    | Photo strip — the bar / seating            | square           |
-
-Want more or fewer slots? Just ask.
+To swap any of these, just replace the file with the same name (any
+image format works — update the extension in the matching component
+under `src/components/` if it changes).

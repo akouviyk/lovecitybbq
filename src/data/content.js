@@ -48,7 +48,7 @@ export const SIDES = [
 ]
 
 export const STORY = {
-  owner: 'Janice Paris',
+  owner: 'Janice',
   paragraphs: [
     "Janice never planned on running a barbecue joint. Selling clothes, doing nails — sure. Feeding half of Cruz Bay off a smoker by the ferry dock wasn't the plan. She opened anyway, and calls the whole thing bigger than anything she could've mapped out herself.",
     "Love City BBQ picked up where a hurricane-shuttered island favorite left off, and locals will tell you the sides alone are worth the walk from the dock. Grab a seat at the bar, let the smoke do its thing, and don't rush it — this is island time BBQ.",

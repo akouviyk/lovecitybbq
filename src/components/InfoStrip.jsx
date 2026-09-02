@@ -1,40 +1,55 @@
-const ITEMS = [
-  { label: 'Walk-up from the ferry', icon: '⚓' },
-  { label: 'No reservations needed', icon: '✋' },
-  { label: 'Open-air bar seating', icon: '🍹' },
-  { label: 'Cash & card', icon: '💳' },
-  { label: 'Closed Mondays', icon: '🌙' },
-]
+import { FEATURES } from '../data/content'
 
 export default function InfoStrip() {
   return (
-    <div style={{ background: 'var(--charcoal-soft)', borderTop: '1px solid rgba(244,179,44,0.12)' }}>
-      <div
-        className="wrap"
-        style={{
-          display: 'flex',
-          flexWrap: 'wrap',
-          gap: 'clamp(14px, 3vw, 30px)',
-          justifyContent: 'center',
-          padding: '18px clamp(20px, 5vw, 56px)',
-        }}
-      >
-        {ITEMS.map((item) => (
-          <span
-            key={item.label}
-            style={{
-              display: 'inline-flex',
-              alignItems: 'center',
-              gap: 8,
-              fontSize: '0.85rem',
-              fontWeight: 500,
-              color: 'var(--muted)',
-            }}
-          >
-            <span aria-hidden="true">{item.icon}</span>
-            {item.label}
-          </span>
-        ))}
+    <div className="section-pad" style={{ background: 'var(--charcoal-soft)' }}>
+      <div className="wrap">
+        <p
+          className="eyebrow"
+          style={{ textAlign: 'center', color: 'var(--teal)', marginBottom: 36 }}
+        >
+          Featuring
+        </p>
+        <div
+          className="features-row"
+          style={{
+            display: 'flex',
+            flexWrap: 'wrap',
+            gap: 'clamp(24px, 5vw, 56px)',
+            justifyContent: 'center',
+          }}
+        >
+          {FEATURES.map((item) => (
+            <div
+              key={item.label}
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: 14,
+                width: 130,
+                textAlign: 'center',
+              }}
+            >
+              <span
+                aria-hidden="true"
+                style={{
+                  width: 68,
+                  height: 68,
+                  borderRadius: '50%',
+                  background: 'var(--charcoal)',
+                  border: '2px solid var(--yellow)',
+                  display: 'grid',
+                  placeItems: 'center',
+                  fontSize: '1.6rem',
+                }}
+              >
+                {item.icon}
+              </span>
+              <span style={{ fontSize: '0.92rem', fontWeight: 600 }}>{item.label}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   )

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { asset } from '../utils';
 import PhotoSlot from './PhotoSlot';
 
@@ -12,6 +13,9 @@ const SLOTS = [
 ];
 
 export default function Gallery() {
+  const [openIndex, setOpenIndex] = useState(null);
+  const active = openIndex === null ? null : SLOTS[openIndex];
+
   return (
     <section
       className="section-pad"
@@ -47,17 +51,77 @@ export default function Gallery() {
             gap: 10,
           }}
         >
-          {SLOTS.map((slot) => (
-            <PhotoSlot
+          {SLOTS.map((slot, i) => (
+            <button
               key={slot.file}
-              src={asset(`/images/${slot.file}`)}
-              alt={slot.alt}
-              aspect="1 / 1"
-              fallback={null}
-            />
+              onClick={() => setOpenIndex(i)}
+              aria-label={`View larger: ${slot.alt}`}
+              style={{
+                border: 'none',
+                padding: 0,
+                background: 'none',
+                cursor: 'pointer',
+                borderRadius: 'var(--radius)',
+                overflow: 'hidden',
+              }}
+            >
+              <PhotoSlot
+                src={asset(`/images/${slot.file}`)}
+                alt={slot.alt}
+                aspect="1 / 1"
+                fallback={null}
+              />
+            </button>
           ))}
         </div>
       </div>
+
+      {active && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label={active.alt}
+          onClick={() => setOpenIndex(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            zIndex: 100,
+            background: 'rgba(36,28,21,0.88)',
+            display: 'grid',
+            placeItems: 'center',
+            padding: 'clamp(20px, 5vw, 56px)',
+          }}
+        >
+          <button
+            onClick={() => setOpenIndex(null)}
+            aria-label="Close"
+            style={{
+              position: 'absolute',
+              top: 20,
+              right: 24,
+              background: 'none',
+              border: 'none',
+              color: 'var(--cream)',
+              fontSize: '2rem',
+              lineHeight: 1,
+              cursor: 'pointer',
+            }}
+          >
+            ×
+          </button>
+          <img
+            src={asset(`/images/${active.file}`)}
+            alt={active.alt}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: 'min(90vw, 900px)',
+              maxHeight: '85vh',
+              borderRadius: 'var(--radius)',
+              display: 'block',
+            }}
+          />
+        </div>
+      )}
 
       <style>{`
         @media (max-width: 780px) {

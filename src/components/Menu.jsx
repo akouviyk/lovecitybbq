@@ -1,4 +1,5 @@
 import { MAINS, SIDES } from '../data/content'
+import { SIDE_ICONS } from './Illustrations'
 
 export default function Menu() {
   return (
@@ -59,13 +60,28 @@ export default function Menu() {
 
           <div>
             <p className="eyebrow" style={{ color: 'var(--teal)', marginBottom: 16 }}>Sides Worth Fighting Over</p>
-            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: 12 }}>
-              {SIDES.map((s) => (
-                <li key={s} style={{ display: 'flex', alignItems: 'center', gap: 10, fontSize: '1.02rem' }}>
-                  <span style={{ width: 6, height: 6, borderRadius: '50%', background: 'var(--flame)', flex: 'none' }} />
-                  {s}
-                </li>
-              ))}
+            <ul style={{ listStyle: 'none', margin: 0, padding: 0, display: 'grid', gap: 14 }}>
+              {SIDES.map((s) => {
+                const Icon = SIDE_ICONS[s.icon]
+                return (
+                  <li key={s.name} style={{ display: 'flex', alignItems: 'center', gap: 12, fontSize: '1.02rem' }}>
+                    <span
+                      style={{
+                        width: 40,
+                        height: 40,
+                        flex: 'none',
+                        borderRadius: '50%',
+                        background: 'var(--charcoal-soft)',
+                        display: 'grid',
+                        placeItems: 'center',
+                      }}
+                    >
+                      {Icon && <Icon />}
+                    </span>
+                    {s.name}
+                  </li>
+                )
+              })}
             </ul>
 
             <div

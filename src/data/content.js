@@ -37,14 +37,15 @@ export const MAINS = [
   { name: 'Pigtail', note: 'Every other Sunday — ask if it\'s the week', special: true },
 ]
 
+// icon keys map to the illustrated icon set in components/Illustrations.jsx
 export const SIDES = [
-  'Pasta Salad',
-  'Potato Salad',
-  'Rice',
-  'Macaroni Pie',
-  'Garden Salad',
-  'Corn',
-  'Garlic Bread',
+  { name: 'Pasta Salad', icon: 'pasta' },
+  { name: 'Potato Salad', icon: 'potato' },
+  { name: 'Rice', icon: 'rice' },
+  { name: 'Macaroni Pie', icon: 'macpie' },
+  { name: 'Garden Salad', icon: 'garden' },
+  { name: 'Corn', icon: 'corn' },
+  { name: 'Garlic Bread', icon: 'bread' },
 ]
 
 export const STORY = {
@@ -54,3 +55,92 @@ export const STORY = {
     "Love City BBQ picked up where a hurricane-shuttered island favorite left off, and locals will tell you the sides alone are worth the walk from the dock. Grab a seat at the bar, let the smoke do its thing, and don't rush it — this is island time BBQ.",
   ],
 }
+
+// Alternating image/text story sections, in display order.
+export const STORY_BLOCKS = [
+  {
+    eyebrow: 'Not The Plan, But Here We Are',
+    heading: 'Run by ',
+    emphasis: 'Janice',
+    headingEnd: ', fueled by real fire.',
+    paragraphs: [STORY.paragraphs[0]],
+    image: '/images/janice.webp',
+    alt: 'Janice behind the bar at Love City BBQ',
+    imageSide: 'left',
+  },
+  {
+    eyebrow: 'Straight Off The Smoker',
+    heading: '',
+    emphasis: 'Real wood.',
+    headingEnd: ' Real time. No shortcuts.',
+    paragraphs: [
+      "Nothing here is rushed. The chicken and ribs sit low and slow over real wood until the smoke does the seasoning for you — no gas, no shortcuts, no apologies for how long it takes.",
+      "Sauce goes on when it's ready, not before. Ask for it on the side if you're particular about that kind of thing — nobody here will judge you for it.",
+    ],
+    image: '/images/gallery-2.jpg',
+    alt: 'BBQ chicken plate with mac and rice',
+    imageSide: 'right',
+  },
+  {
+    eyebrow: 'Bigger Than The Storm',
+    heading: '',
+    emphasis: 'Community first',
+    headingEnd: ', plate second.',
+    paragraphs: [STORY.paragraphs[1]],
+    image: '/images/gallery-3.webp',
+    alt: 'BBQ plate with mac, pasta salad, and coleslaw',
+    imageSide: 'left',
+  },
+]
+
+export const FEATURES = [
+  { label: 'Walk-Up Window', icon: '🪟' },
+  { label: 'Dine-In At The Bar', icon: '🍹' },
+  { label: 'Catering', icon: '🔥' },
+  { label: 'Cash & Card', icon: '💳' },
+]
+
+// Placeholder reviews written in the site's voice, formatted the way real
+// Google/Facebook reviews will be shown (star rating, quote, first name +
+// last initial). Swap these for actual guest reviews before launch —
+// same idea as the PhotoSlot fallbacks standing in for real photos.
+export const TESTIMONIALS = [
+  {
+    name: 'Marcus T.',
+    quote:
+      "Walked up straight off the ferry not knowing what to expect. Ribs were fall-apart tender and the mac pie disappeared before the ribs did.",
+  },
+  {
+    name: 'Danielle R.',
+    quote:
+      "Best plate on the island, hands down. No reservation, no fuss, just a barstool and real barbecue.",
+  },
+  {
+    name: 'Owen K.',
+    quote:
+      "Got the pigtail on a lucky Sunday. If you see it on the board, order it — don't think twice.",
+  },
+]
+
+export const FAQS = [
+  {
+    q: 'Do you take reservations?',
+    a: 'No — walk up, grab a stool at the bar, and order at the window. First come, first served, same as everyone else off the ferry.',
+  },
+  {
+    q: 'What are you known for?',
+    a: 'The ribs and the sides — pasta salad and macaroni pie disappear first. Pigtail shows up every other Sunday if you know to ask.',
+  },
+  {
+    q: 'Where are you located?',
+    a: `${CONTACT.address} — ${CONTACT.landmark.toLowerCase()}.`,
+  },
+  {
+    q: 'Do you do catering?',
+    a: 'Yes — call ahead with a headcount for boats, weddings on the beach, or anything bigger than a table for four.',
+  },
+  {
+    q: 'Is there parking?',
+    a: "Most people walk up from the ferry or downtown Cruz Bay — it's a short walk, and easier than finding a spot.",
+  },
+]

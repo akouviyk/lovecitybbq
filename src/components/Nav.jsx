@@ -1,20 +1,20 @@
-import { useEffect, useState } from 'react'
-import { CONTACT } from '../data/content'
-import { getStatus } from '../data/status'
+import { useEffect, useState } from 'react';
+import { CONTACT } from '../data/content';
+import { getStatus } from '../data/status';
 
 export default function Nav() {
-  const [status, setStatus] = useState(() => getStatus())
-  const [scrolled, setScrolled] = useState(false)
+  const [status, setStatus] = useState(() => getStatus());
+  const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const t = setInterval(() => setStatus(getStatus()), 60_000)
-    const onScroll = () => setScrolled(window.scrollY > 12)
-    window.addEventListener('scroll', onScroll)
+    const t = setInterval(() => setStatus(getStatus()), 60_000);
+    const onScroll = () => setScrolled(window.scrollY > 12);
+    window.addEventListener('scroll', onScroll);
     return () => {
-      clearInterval(t)
-      window.removeEventListener('scroll', onScroll)
-    }
-  }, [])
+      clearInterval(t);
+      window.removeEventListener('scroll', onScroll);
+    };
+  }, []);
 
   return (
     <header
@@ -23,7 +23,6 @@ export default function Nav() {
         top: 0,
         zIndex: 50,
         background: 'var(--charcoal)',
-        borderBottom: '2.5px solid var(--yellow)',
       }}
     >
       <nav
@@ -50,14 +49,63 @@ export default function Nav() {
           }}
         >
           Love City
-          <span style={{ color: 'var(--flame)', fontStyle: 'italic', fontWeight: 700 }}>BBQ</span>
+          <span
+            style={{
+              color: 'var(--flame)',
+              fontStyle: 'italic',
+              fontWeight: 700,
+            }}
+          >
+            BBQ
+          </span>
         </a>
 
-        <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(10px, 3vw, 28px)' }}>
-          <div className="nav-links" style={{ display: 'flex', gap: 24, fontSize: '0.92rem', fontWeight: 500 }}>
-            <a href="#menu" style={{ textDecoration: 'none', color: 'var(--ink)', opacity: 0.75 }}>Menu</a>
-            <a href="#story" style={{ textDecoration: 'none', color: 'var(--ink)', opacity: 0.75 }}>Story</a>
-            <a href="#visit" style={{ textDecoration: 'none', color: 'var(--ink)', opacity: 0.75 }}>Visit</a>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'clamp(10px, 3vw, 28px)',
+          }}
+        >
+          <div
+            className="nav-links"
+            style={{
+              display: 'flex',
+              gap: 24,
+              fontSize: '0.92rem',
+              fontWeight: 500,
+            }}
+          >
+            <a
+              href="#menu"
+              style={{
+                textDecoration: 'none',
+                color: 'var(--ink)',
+                opacity: 0.75,
+              }}
+            >
+              Menu
+            </a>
+            <a
+              href="#story"
+              style={{
+                textDecoration: 'none',
+                color: 'var(--ink)',
+                opacity: 0.75,
+              }}
+            >
+              Story
+            </a>
+            <a
+              href="#visit"
+              style={{
+                textDecoration: 'none',
+                color: 'var(--ink)',
+                opacity: 0.75,
+              }}
+            >
+              Visit
+            </a>
           </div>
 
           <span
@@ -69,7 +117,9 @@ export default function Nav() {
               fontWeight: 600,
               padding: '6px 12px',
               borderRadius: 999,
-              background: status.open ? 'rgba(22,125,119,0.18)' : 'rgba(185,175,160,0.15)',
+              background: status.open
+                ? 'rgba(22,125,119,0.18)'
+                : 'rgba(185,175,160,0.15)',
               color: status.open ? '#0f6a64' : 'var(--muted)',
               whiteSpace: 'nowrap',
             }}
@@ -85,7 +135,11 @@ export default function Nav() {
             {status.label}
           </span>
 
-          <a href={CONTACT.phoneHref} className="btn btn-flame" style={{ padding: '10px 18px', fontSize: '0.88rem' }}>
+          <a
+            href={CONTACT.phoneHref}
+            className="btn btn-flame"
+            style={{ padding: '10px 18px', fontSize: '0.88rem' }}
+          >
             Call
           </a>
         </div>
@@ -97,5 +151,5 @@ export default function Nav() {
         }
       `}</style>
     </header>
-  )
+  );
 }
